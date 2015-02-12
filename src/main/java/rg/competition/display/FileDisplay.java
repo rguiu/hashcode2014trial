@@ -11,13 +11,14 @@ public class FileDisplay implements Display {
     }
 
     public FileDisplay() {
-        this.path = "./";
+        this.path = "./target/";
     }
 
     @Override
-    public void render(String data) {
+    public void render(String data, String score) {
         try {
             Files.write(Paths.get(path + "solution.txt"), data.getBytes());
+            Files.write(Paths.get(path + "score.txt"), score.getBytes());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
