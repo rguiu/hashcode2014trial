@@ -6,6 +6,6 @@ public class ExecutableImpl implements Executable{
 
     @Override
     public String execute() {
-        return "Hello World";
+        return "Hello World\nThis is a \nSample\nkkl\n";
     }
 }
