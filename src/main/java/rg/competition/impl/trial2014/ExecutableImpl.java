@@ -31,7 +31,7 @@ public class ExecutableImpl implements Executable{
 
     @Override
     public String execute() {
-        for (int mm = 24; mm >= 1 ; mm/=2) {
+        for (int mm = 64; mm >= 1 ; mm/=2) {
             while(true) {
                 int[] currentWinner = new int[]{-1,-1,-1};
                 int currentWinnerScore = 0;
@@ -76,7 +76,8 @@ public class ExecutableImpl implements Executable{
                                 currentScore += scp - (mm * scn) - 1;
                                 currentMoves += scn;
                             }
-                            if (currentScore > currentWinnerScore) {
+                            if (mm/2 - 1> k) continue;
+                            if (currentScore > currentWinnerScore || (currentScore == currentWinnerScore && k > currentWinner[2])) {
                                 currentWinnerScore = currentScore;
                                 currentWinner = new int[]{i, j, k};
                                 currentWinnerMoves = currentMoves + 1;
