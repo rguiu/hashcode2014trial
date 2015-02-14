@@ -31,7 +31,7 @@ public class ExecutableImpl implements Executable{
 
     @Override
     public String execute() {
-        for (int mm = 9; mm >= 1 ; mm-=2) {
+        for (int mm = 24; mm >= 1 ; mm/=2) {
             while(true) {
                 int[] currentWinner = new int[]{-1,-1,-1};
                 int currentWinnerScore = 0;
