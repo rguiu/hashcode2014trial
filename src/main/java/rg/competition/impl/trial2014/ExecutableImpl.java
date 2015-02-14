@@ -50,7 +50,6 @@ public class ExecutableImpl implements Executable{
                                 break;
                             }
 
-
                             int kk = 2 * k + 1;
                             int scp = 0;
                             int scn = 0;
@@ -72,7 +71,7 @@ public class ExecutableImpl implements Executable{
                                     }
                                 }
                             }
-                            currentScore += scp - scn - 1;
+                            currentScore += scp - (2 * scn) - 1;
                         }
                         if (currentScore > currentWinnerScore) {
                             currentWinnerScore = currentScore;
