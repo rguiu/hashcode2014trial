@@ -56,6 +56,13 @@ public class ExecutableImpl implements Executable{
                                 int scp = 0;
                                 int scn = 0;
                                 for (int ii = -k; ii <= k; ii++) {
+                                    if (!processed[i - ii][j + k]) {
+                                        if (data[i - ii][j + k]) {
+                                            scp++;
+                                        } else {
+                                            scn++;
+                                        }
+                                    }
                                     if (!processed[i - ii][j - k]) {
                                         if (data[i - ii][j - k]) {
                                             scp++;
@@ -67,6 +74,13 @@ public class ExecutableImpl implements Executable{
                                 for (int jj = -k + 1; jj < k; jj++) {
                                     if (!processed[i - k][j - jj]) {
                                         if (data[i - k][j - jj]) {
+                                            scp++;
+                                        } else {
+                                            scn++;
+                                        }
+                                    }
+                                    if (!processed[i + k][j - jj]) {
+                                        if (data[i + k][j - jj]) {
                                             scp++;
                                         } else {
                                             scn++;
