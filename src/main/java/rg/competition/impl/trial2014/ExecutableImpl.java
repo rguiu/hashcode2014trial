@@ -71,7 +71,7 @@ public class ExecutableImpl implements Executable{
                                     }
                                 }
                             }
-                            currentScore += scp - (2 * scn) - 1;
+                            currentScore += scp - (5 * scn) - 1;
                         }
                         if (currentScore > currentWinnerScore) {
                             currentWinnerScore = currentScore;
