@@ -9,6 +9,7 @@ public class ExecutableImpl implements Executable{
     Boolean[][] data;
     boolean[][] processed;
     boolean[][] selected;
+    int expectedScore = 0;
 
     List<String>lines = new ArrayList<>();
     List<String>eraselines = new ArrayList<>();
@@ -31,15 +32,17 @@ public class ExecutableImpl implements Executable{
     @Override
     public String execute() {
         for (int mm = 9; mm >= 1 ; mm-=2) {
-            while(!finished()) {
+            while(true) {
                 int[] currentWinner = new int[]{-1,-1,-1};
                 int currentWinnerScore = 0;
+                int currentWinnerMoves = 0;
                 for (int i = 0; i < data.length; i++) {
                     for (int j = 0; j < data[i].length; j++) {
                         if (selected[i][j]) {
                             continue;
                         }
                         int currentScore = 0;
+                        int currentMoves = 0;
                         for (int k = 0; k < 110; k++) {
                             if (k==0) {
                                 if (!processed[i][j] && data[i][j]) {
@@ -50,8 +53,6 @@ public class ExecutableImpl implements Executable{
                                 if (!isWorth(k, currentScore)) {
                                     break;
                                 }
-
-                                int kk = 2 * k + 1;
                                 int scp = 0;
                                 int scn = 0;
                                 for (int ii = -k; ii <= k; ii++) {
@@ -73,19 +74,22 @@ public class ExecutableImpl implements Executable{
                                     }
                                 }
                                 currentScore += scp - (mm * scn) - 1;
+                                currentMoves += scn;
                             }
                             if (currentScore > currentWinnerScore) {
                                 currentWinnerScore = currentScore;
                                 currentWinner = new int[]{i, j, k};
+                                currentWinnerMoves = currentMoves + 1;
                             }
                         }
                     }
                 }
 
-                if (currentWinner[0]<0) break;
-                System.out.println(currentWinner[0] + "," + currentWinner[1] + "," + currentWinner[2]+"["+currentWinnerScore+"] m {["+mm+"]}");
+                if (currentWinner[0]<0 || currentWinner[2]==0) break;
+                score += currentWinnerMoves;;
+                System.out.println(currentWinner[0] + "," + currentWinner[1] + "," + currentWinner[2]+"["+currentWinnerScore+"] m {["+mm+"]}: SCORE: "+score);
                 selected(currentWinner[0], currentWinner[1], currentWinner[2]);
-                if (currentWinner[2]==0) break;
+
             }
 
         }

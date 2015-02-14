@@ -10,13 +10,6 @@ public class MainImpl {
 
         Boolean[][] data = input.fetch("realx.txt");
 
-//        for (Boolean [] b:data) {
-//            for (boolean f:b) {
-//                char c = f?'#':'.';
-//                System.out.print(c);
-//            }
-//            System.out.println();
-//        }
         ExecutableImpl main = new ExecutableImpl(data);
         Display display = new FileDisplay();
         String response = main.execute();
