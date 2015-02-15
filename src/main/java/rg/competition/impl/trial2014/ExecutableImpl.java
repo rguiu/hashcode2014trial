@@ -23,7 +23,7 @@ public class ExecutableImpl implements Executable{
     }
 
     public boolean isWorth(int k, int score) {
-        if (k>10 && score<0) return false;
+        //if (k>10 && score<0) return false;
         int kk = 2*k + 1;
         int k2 = 2*(k-1) + 1;
         return (k>0 && (kk*kk)-(k2*k2) > -score);
@@ -31,7 +31,7 @@ public class ExecutableImpl implements Executable{
 
     @Override
     public String execute() {
-        for (int mm = 64; mm >= 1 ; mm/=2) {
+        for (int mm = 32; mm >= 1 ; mm/=2) {
             while(true) {
                 int[] currentWinner = new int[]{-1,-1,-1};
                 int currentWinnerScore = 0;
@@ -90,7 +90,7 @@ public class ExecutableImpl implements Executable{
                                 currentScore += scp - (mm * scn) - 1;
                                 currentMoves += scn;
                             }
-                            if (mm/4 - 1> k) continue;
+                            if (mm/2 - 1> k) continue;
                             if (currentScore > currentWinnerScore || (currentScore == currentWinnerScore && k > currentWinner[2])) {
                                 currentWinnerScore = currentScore;
                                 currentWinner = new int[]{i, j, k};
