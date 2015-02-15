@@ -31,13 +31,13 @@ public class ExecutableImpl implements Executable{
 
     @Override
     public String execute() {
-        for (int mm = 32; mm >= 1 ; mm/=2) {
+        for (int mm = 16; mm >= 1 ; mm/=2) {
             while(true) {
                 int[] currentWinner = new int[]{-1,-1,-1};
                 int currentWinnerScore = 0;
                 int currentWinnerMoves = 0;
-                for (int i = 0; i < data.length; i++) {
-                    for (int j = 0; j < data[i].length; j++) {
+                for (int i = data.length - 1; i >=0; i--) {
+                    for (int j = data[i].length - 1; j >=0; j--) {
                         if (selected[i][j]) {
                             continue;
                         }
