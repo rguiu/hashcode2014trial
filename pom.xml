@@ -13,7 +13,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>rg.competition.impl.example.MainImpl</mainClass>
+                            <mainClass>rg.competition.impl.main2014.MainImpl</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

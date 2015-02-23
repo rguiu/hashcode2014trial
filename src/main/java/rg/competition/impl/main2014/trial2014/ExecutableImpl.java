@@ -59,7 +59,7 @@ public class ExecutableImpl implements Executable{
                             cars.add(c);
                             streetsVisited[s.index] = true;
                             moved = true;
-                            break;  
+                            break;
                         }
                     }
                 }
