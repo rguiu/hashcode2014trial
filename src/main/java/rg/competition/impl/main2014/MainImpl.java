@@ -1,4 +1,4 @@
-package rg.competition.impl.main2014.trial2014;
+package rg.competition.impl.main2014;
 
 import rg.competition.Input;
 import rg.competition.display.Display;

@@ -1,4 +1,4 @@
-package rg.competition.impl.main2014.trial2014;
+package rg.competition.impl.main2014;
 
 import java.io.BufferedReader;
 import java.io.IOException;
